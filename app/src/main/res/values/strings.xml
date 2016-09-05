@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">枝干</string>
+    <string name="slogan">Werb Gank with Zhihu</string>
+    <string name="load_error">网络不见了~</string>
+    <string name="save">需要保存当前图片嘛？</string>
+    <string name="gank_load_error">代码家的服务器不见啦</string>
+    <string name="headline">大公司头条</string>
+    <string name="feed_0">好奇心研究所</string>
+</resources>
