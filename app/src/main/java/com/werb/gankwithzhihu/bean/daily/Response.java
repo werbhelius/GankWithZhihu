@@ -12,8 +12,13 @@ public class Response {
     private List<Daily> banners;
     private List<Daily> feeds;
     private Daily headline;
+    private List<Options> options;
     private String has_more;
     private String last_key;
+
+    public List<Options> getOptions() {
+        return options;
+    }
 
     public List<Daily> getBanners() {
         return banners;
@@ -52,6 +57,7 @@ public class Response {
                 "banners=" + banners +
                 ", feeds=" + feeds +
                 ", headline=" + headline +
+                ", options=" + options +
                 ", has_more='" + has_more + '\'' +
                 ", last_key='" + last_key + '\'' +
                 '}';

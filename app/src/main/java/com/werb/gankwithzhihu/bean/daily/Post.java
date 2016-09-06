@@ -11,7 +11,7 @@ public class Post implements Serializable{
 
     private String appview;
     private String title;
-    private String post_id;
+    private String id;
     private String description;
     private Category category;
 
@@ -35,12 +35,16 @@ public class Post implements Serializable{
         this.title = title;
     }
 
-    public String getPost_id() {
-        return post_id;
+    public String getId() {
+        return id;
     }
 
-    public void setPost_id(String post_id) {
-        this.post_id = post_id;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public String getDescription() {
@@ -56,8 +60,9 @@ public class Post implements Serializable{
         return "Post{" +
                 "appview='" + appview + '\'' +
                 ", title='" + title + '\'' +
-                ", post_id='" + post_id + '\'' +
+                ", id='" + id + '\'' +
                 ", description='" + description + '\'' +
+                ", category=" + category +
                 '}';
     }
 }

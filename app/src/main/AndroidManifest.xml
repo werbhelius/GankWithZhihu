@@ -45,6 +45,14 @@
         <activity android:name=".ui.activity.GankWebActivity"
             android:theme="@style/MainTheme"/>
 
+        <!--DailyFeed-->
+        <activity android:name=".ui.activity.DailyFeedActivity"
+            android:theme="@style/MainTheme"/>
+
+        <!--AboutMe-->
+        <activity android:name=".ui.activity.AboutMeActivity"
+            android:theme="@style/MainTheme"/>
+
     </application>
 
 </manifest>

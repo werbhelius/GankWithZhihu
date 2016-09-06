@@ -18,6 +18,7 @@ import com.werb.gankwithzhihu.bean.daily.Daily;
 import com.werb.gankwithzhihu.bean.daily.HeadLine;
 import com.werb.gankwithzhihu.bean.daily.Response;
 import com.werb.gankwithzhihu.bean.zhihu.TopStories;
+import com.werb.gankwithzhihu.ui.activity.DailyFeedActivity;
 import com.werb.gankwithzhihu.ui.activity.GankWebActivity;
 import com.werb.gankwithzhihu.util.ScreenUtil;
 import com.werb.gankwithzhihu.widget.TopStoriesViewPager;
@@ -247,7 +248,7 @@ public class DailyListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             }
 
             vp_top_stories.init(topList, tv_top_title, item -> {
-                Intent intent = GankWebActivity.newIntent(context,item.getUrl());
+                Intent intent = GankWebActivity.newIntent(context, item.getUrl());
                 context.startActivity(intent);
             });
         }
@@ -279,7 +280,7 @@ public class DailyListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             tv_headline_3.setText(headLines.get(2).getDescription());
 
             card_headline.setOnClickListener(v -> {
-                Intent intent = GankWebActivity.newIntent(context,daily.getPost().getAppview());
+                Intent intent = GankWebActivity.newIntent(context, daily.getPost().getAppview());
                 context.startActivity(intent);
             });
         }
@@ -313,7 +314,7 @@ public class DailyListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             Glide.with(context).load(daily.getImage()).centerCrop().into(iv_feed_1_icon);
 
             card_feed_1.setOnClickListener(v -> {
-                Intent intent = GankWebActivity.newIntent(context,daily.getPost().getAppview());
+                Intent intent = GankWebActivity.newIntent(context, daily.getPost().getAppview());
                 context.startActivity(intent);
             });
         }
@@ -352,10 +353,14 @@ public class DailyListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             Glide.with(context).load(daily.getImage()).centerCrop().into(iv_feed_0_icon);
             if (daily.getType() == 0) {
                 Glide.with(context).load(R.drawable.feed_0_icon).centerCrop().into(iv_feed_0_type);
+                card_layout.setOnClickListener(v -> {
+                    Intent intent = DailyFeedActivity.newIntent(context, daily.getPost().getId(), daily.getPost().getDescription(), daily.getPost().getTitle(), daily.getImage());
+                    context.startActivity(intent);
+                });
             } else if (daily.getType() == 2) {
                 Glide.with(context).load(R.drawable.feed_1_icon).centerCrop().into(iv_feed_0_type);
                 card_layout.setOnClickListener(v -> {
-                    Intent intent = GankWebActivity.newIntent(context,daily.getPost().getAppview());
+                    Intent intent = GankWebActivity.newIntent(context, daily.getPost().getAppview());
                     context.startActivity(intent);
                 });
             }

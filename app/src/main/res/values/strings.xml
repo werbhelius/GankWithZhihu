@@ -6,4 +6,23 @@
     <string name="gank_load_error">代码家的服务器不见啦</string>
     <string name="headline">大公司头条</string>
     <string name="feed_0">好奇心研究所</string>
+    <string name="github">GitHub今日热门</string>
+    <string name="about_me">关于我</string>
+    <string name="one_word">有时候啊   你总是在追赶前面的人   总是抱怨自己为什么不能再努力一点   累了你可以停下来   看看原来的自己   其实你已经很了不起了。</string>
+    <string name="app_info">枝干</string>
+    <string name="desc"> * 知乎，干货集中营，好奇心日报</string>
+    <string name="desc_api_zhihu"> * 知乎日报 Api 取自 ZhihuDailyPurify</string>
+    <string name="desc_api_gank"> * 干货日报 Api 取自 Gank.io</string>
+    <string name="desc_api_daily"> * 好奇心日报 Api 是爬取出来的，后期会整理到 GitHub</string>
+    <string name="desc_dev"> * 整体开发基于 MVP+RxJava+Retrofit</string>
+    <string name="app_dev">开发</string>
+    <string name="desc_dev_1"> * 通过 Retrofit 实现了无网缓存</string>
+    <string name="desc_dev_2"> * 基于 MVP 模式对 Activity 和 Fragment 封装了两个基类</string>
+    <string name="desc_dev_3"> * 运用RecyclerView加载了多种复杂布局</string>
+    <string name="app_me">关于我</string>
+    <string name="me_1"> * 应届毕业生 北京工作</string>
+    <string name="me_2"> * 喜欢的事很多 : 唱歌，画画，写作，撸代码，看悬疑片</string>
+    <string name="me_3"> * 喜欢玩游戏：Dota2 LOL 可以联系我一起开黑 :)</string>
+    <string name="me_4"> * 最近想换工作了，有兴趣的可以联系我 :)</string>
+    <string name="app_content">联系我</string>
 </resources>

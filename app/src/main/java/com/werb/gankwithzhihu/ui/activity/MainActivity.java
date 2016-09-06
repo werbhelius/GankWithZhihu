@@ -1,8 +1,11 @@
 package com.werb.gankwithzhihu.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.werb.gankwithzhihu.R;
 import com.werb.gankwithzhihu.ui.adapter.ViewPagerFgAdapter;
@@ -53,4 +56,23 @@ public class MainActivity extends MVPBaseActivity {
         tabLayout.setupWithViewPager(content_viewPager);//将TabLayout和ViewPager关联起来
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.today_github){
+            String github_trending = "https://github.com/trending";
+            startActivity(GankWebActivity.newIntent(this,github_trending));
+            return true;
+        }else if(item.getItemId() == R.id.about_me){
+            startActivity(new Intent(this,AboutMeActivity.class));
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }

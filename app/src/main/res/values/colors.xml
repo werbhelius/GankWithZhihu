@@ -31,4 +31,10 @@
     <color name="前端">#28B78D</color>
     <color name="拓展资源">#F16745</color>
     <color name="瞎推荐">#A199E9</color>
+
+    <!--option card-->
+    <color name="card_1">#9068be</color>
+    <color name="card_2">#1F8AFF</color>
+    <color name="card_3">#28B78D</color>
+    <color name="card_4">#F16745</color>
 </resources>

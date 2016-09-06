@@ -34,6 +34,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_marginRight="5dp"
+                    android:textColor="@color/black"
                     android:gravity="center" />
 
                 <LinearLayout
