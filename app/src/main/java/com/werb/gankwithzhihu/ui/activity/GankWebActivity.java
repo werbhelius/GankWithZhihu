@@ -17,6 +17,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/8/31.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * WebActivity
  */
 public class GankWebActivity extends MVPBaseActivity<IGankWebView,GankWebPresenter> implements IGankWebView {
 

@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_cover"
+    <com.werb.gankwithzhihu.widget.SplashView
+        android:id="@+id/splash_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:duration="500"
+        app:holeFillColor="@color/colorPrimary"
+        app:iconColor="@color/colorPrimary"
+        app:removeFromParentOnEnd="true"
+        app:splashIcon="@mipmap/wb_sunny" />
 
     <TextView
-        android:id="@+id/tv_slogan"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_splash_info"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:text="@string/slogan"
         android:layout_alignParentBottom="true"
-        android:gravity="center"/>
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:text="@string/splash_info"/>
 </RelativeLayout>

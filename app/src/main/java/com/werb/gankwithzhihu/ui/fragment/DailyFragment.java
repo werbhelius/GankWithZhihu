@@ -15,6 +15,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/9/2.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * DailyFragment
  */
 public class DailyFragment extends MVPBaseFragment<IDailyFgView,DailyFgPresenter> implements IDailyFgView {
 

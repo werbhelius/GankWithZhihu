@@ -27,6 +27,7 @@ import uk.co.senab.photoview.PhotoViewAttacher;
  * Created by Werb on 2016/8/22.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * 显示和保存图片
  */
 public class PictureActivity extends MVPBaseActivity {
 

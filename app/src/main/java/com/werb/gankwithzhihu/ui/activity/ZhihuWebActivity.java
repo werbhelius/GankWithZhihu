@@ -18,7 +18,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/8/18.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
- * show html
+ * show html with code
  */
 public class ZhihuWebActivity extends MVPBaseActivity<IZhihuWebView,ZhihuWebPresenter> implements IZhihuWebView {
 

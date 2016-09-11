@@ -21,6 +21,13 @@ import java.util.List;
 
 import butterknife.Bind;
 
+/**
+ * Created by Werb on 2016/8/18.
+ * Werb is Wanbo.
+ * Contact Me : werbhelius@gmail.com
+ * 主界面，包含了三个Fragment，但是我觉得在 Fragment 的加载和销毁的处理上，做的不好，希望大家可以有好的建议提供给我
+ */
+
 public class MainActivity extends MVPBaseActivity {
 
     @Bind(R.id.tabLayout)
@@ -52,6 +59,7 @@ public class MainActivity extends MVPBaseActivity {
         fragmentList.add(new ZhihuFragment());
         fragmentList.add(new GankFragment());
         fragmentList.add(new DailyFragment());
+        content_viewPager.setOffscreenPageLimit(3);//设置至少3个fragment，防止重复创建和销毁，造成内存溢出
         content_viewPager.setAdapter(new ViewPagerFgAdapter(getSupportFragmentManager(),fragmentList,"main_view_pager"));//给ViewPager设置适配器
         tabLayout.setupWithViewPager(content_viewPager);//将TabLayout和ViewPager关联起来
     }

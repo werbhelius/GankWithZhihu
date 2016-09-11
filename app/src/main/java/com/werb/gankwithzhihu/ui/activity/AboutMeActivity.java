@@ -17,6 +17,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/9/6.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * 希望可以帮助到你 :)
  */
 public class AboutMeActivity extends MVPBaseActivity implements View.OnClickListener {
 

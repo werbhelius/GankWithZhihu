@@ -17,6 +17,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/8/18.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * GankFragment
  */
 public class GankFragment extends MVPBaseFragment<IGankFgView,GankFgPresenter> implements IGankFgView {
 

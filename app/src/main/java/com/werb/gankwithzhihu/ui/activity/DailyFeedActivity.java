@@ -20,6 +20,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/9/6.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * 展示 好奇心日报 type = feed 的 item 详细内容
  */
 public class DailyFeedActivity extends MVPBaseActivity<IDailyFeedView,DailyFeedPresenter> implements IDailyFeedView {
 

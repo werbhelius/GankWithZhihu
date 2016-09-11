@@ -19,6 +19,7 @@ import butterknife.Bind;
  * Created by Werb on 2016/8/30.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
+ * Gank 干货详细内容
  */
 public class GankActivity extends MVPBaseActivity<IGankView,GankPresenter> implements IGankView {
 

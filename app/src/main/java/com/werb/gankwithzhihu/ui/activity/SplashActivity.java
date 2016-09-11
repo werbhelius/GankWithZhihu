@@ -1,16 +1,19 @@
 package com.werb.gankwithzhihu.ui.activity;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Typeface;
-import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ImageView;
+import android.util.Log;
 import android.widget.TextView;
 
+import com.werb.gankwithzhihu.BuildConfig;
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.ui.base.BasePresenter;
 import com.werb.gankwithzhihu.ui.base.MVPBaseActivity;
-import com.werb.gankwithzhihu.ui.presenter.SplashPresenter;
-import com.werb.gankwithzhihu.ui.view.ISplashView;
+import com.werb.gankwithzhihu.widget.SplashView;
+
+import java.util.Random;
 
 import butterknife.Bind;
 
@@ -18,19 +21,24 @@ import butterknife.Bind;
  * Created by Werb on 2016/8/18.
  * Werb is Wanbo.
  * Contact Me : werbhelius@gmail.com
- * Splash with zhihu start-image
+ * Splash like twitter
  */
-public class SplashActivity extends MVPBaseActivity<ISplashView,SplashPresenter> implements ISplashView {
+public class SplashActivity extends MVPBaseActivity {
 
-    @Bind(R.id.iv_cover)
-    ImageView iv_cover;
-    @Bind(R.id.tv_slogan)
-    TextView tv_slogan;
+    private static final String TAG = "SplashActivity";
+
+    private Handler mHandler = new Handler();
+
+    @Bind(R.id.splash_view)
+    SplashView splash_view;
+    @Bind(R.id.tv_splash_info)
+    TextView tv_splash_info;
 
     @Override
-    protected SplashPresenter createPresenter() {
-        return new SplashPresenter(this);
+    protected BasePresenter createPresenter() {
+        return null;
     }
+
 
     @Override
     protected int provideContentViewId() {
@@ -38,31 +46,56 @@ public class SplashActivity extends MVPBaseActivity<ISplashView,SplashPresenter>
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPresenter.getSplashImage();
+    protected void onStart() {
+        super.onStart();
 
-        //Old English 字体
-        Typeface typeFace =Typeface.createFromAsset(getAssets(),"fonts/rm_albion.ttf");
-        tv_slogan.setTypeface(typeFace);
-        tv_slogan.setTextSize(30f);
-
-        //进入主界面
-        new Handler().postDelayed(() -> goToMain(),1500);
+        AssetManager mgr=getAssets();//得到AssetManager
+        Typeface tf=Typeface.createFromAsset(mgr, "fonts/rm_albion.ttf");//根据路径得到Typeface
+        tv_splash_info.setTypeface(tf);//设置字体
+        startLoadingData();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPresenter.destroyImg();
+    /**
+     * start splash animation
+     */
+    private void startLoadingData(){
+        // finish "loading data" in a random time between 1 and 3 seconds
+        Random random = new Random();
+        mHandler.postDelayed(this::onLoadingDataEnded, 1000 + random.nextInt(2000));
     }
 
-    @Override
-    public ImageView getCoverImg() {
-        return iv_cover;
+    private void onLoadingDataEnded(){
+        // start the splash animation
+        splash_view.splashAndDisappear(new SplashView.ISplashListener(){
+            @Override
+            public void onStart(){
+                // log the animation start event
+                if(BuildConfig.DEBUG){
+                    Log.d(TAG, "splash started");
+                }
+            }
+
+            @Override
+            public void onUpdate(float completionFraction){
+                // log animation update events
+                if(BuildConfig.DEBUG){
+                    Log.d(TAG, "splash at " + String.format("%.2f", (completionFraction * 100)) + "%");
+                }
+            }
+
+            @Override
+            public void onEnd(){
+                // log the animation end event
+                if(BuildConfig.DEBUG){
+                    Log.d(TAG, "splash ended");
+                }
+                // free the view so that it turns into garbage
+                splash_view = null;
+                goToMain();
+            }
+        });
     }
 
-    @Override
     public void goToMain() {
         finish();
         startActivity(new Intent(SplashActivity.this, MainActivity.class));

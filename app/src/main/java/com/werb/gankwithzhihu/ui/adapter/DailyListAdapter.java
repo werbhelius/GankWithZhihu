@@ -305,6 +305,9 @@ public class DailyListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public Feed_1_ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            ScreenUtil screenUtil = ScreenUtil.instance(context);
+            card_feed_1.setLayoutParams(new LinearLayout.LayoutParams(screenUtil.getScreenWidth(), ViewGroup.LayoutParams.WRAP_CONTENT));
         }
 
         public void bindItem(Daily daily) {
