@@ -26,7 +26,7 @@
 * 知乎日报的详细详细界面，不是采用 webView 加载 url路径实现的，而是根据 api 返回的 html 标签代码，拼接 Css 和 JS 实现的，很有意思，我分析知乎这样做的原因，应该是为了实现在无网状态下，同样可以保持阅读体验
 * 各种APi返回的数据格式都很复杂，特别是好奇心日报，不单单是list集合，所以在项目中，使用 RecyclerView 加载了很多复杂布局，特别是实现了如何根据数据来判断布局的加载
 * 从开始学习到第一次使用 MVP + RexJava + Retrofit 开发项目，真正体会到了它的方便与强大之处
-* 项目中，有很多代码是可以重复利用的，，为了更好的体会 MVP 思想，我目前还没有重构，后续会根据功能进行优化
+* 项目中，有很多代码是可以重复利用的，为了更好的体会 MVP 思想，我目前还没有重构，后续会根据功能进行优化
 * 目前对内存优化问题，我控制的不是很好，如果有在这方面有经验很擅长的同学，希望可以联系我
 
 ![detail](https://raw.githubusercontent.com/Werb/GankWithZhihu/master/screenshots/maindetail.png)
@@ -64,7 +64,6 @@
       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
       See the License for the specific language governing permissions and
       limitations under the License.
-
 
 ### Contact Me
 * Email: 1025004680@qq.com
