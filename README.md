@@ -44,6 +44,11 @@
 
 ![aboutme](https://raw.githubusercontent.com/Werb/GankWithZhihu/master/screenshots/aboutme.png)
 
+* [业余时间写了一个第三方微博（不使用官方SDK）](http://werb.github.io/2016/09/11/%E4%B8%9A%E4%BD%99%E6%97%B6%E9%97%B4%E5%86%99%E4%BA%86%E4%B8%80%E4%B8%AA%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BE%AE%E5%8D%9A%EF%BC%88%E4%B8%8D%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9SDK%EF%BC%89/)
+* GitHub 项目地址 : [https://github.com/Werb/Werb](https://github.com/Werb/Werb)
+* 欢迎 Star 和 Fork
+
+
 ### License
 * 感谢开源项目 [ZhihuDailyPurify](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)
 * 感谢 [gank.io](http://gank.io/api)
