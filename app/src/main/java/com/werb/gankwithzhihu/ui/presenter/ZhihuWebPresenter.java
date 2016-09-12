@@ -66,6 +66,8 @@ public class ZhihuWebPresenter extends BasePresenter<IZhihuWebView> {
     }
 
     public void destroyImg(){
-        Glide.clear(webImg);
+        if(webImg != null) {
+            Glide.clear(webImg);
+        }
     }
 }
