@@ -75,4 +75,10 @@ public class GankWebActivity extends MVPBaseActivity<IGankWebView,GankWebPresent
     public WebView getWebView() {
         return url_web;
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        url_web.destroy();
+    }
 }

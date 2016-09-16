@@ -103,6 +103,7 @@ public abstract class MVPBaseActivity<V, T extends BasePresenter<V>> extends App
         // 此时android.R.id.home即为返回箭头
         if (item.getItemId() == android.R.id.home) {
             onBackPressed();
+            finish();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
