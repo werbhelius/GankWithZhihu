@@ -97,7 +97,13 @@ public class SplashActivity extends MVPBaseActivity {
     }
 
     public void goToMain() {
-        finish();
         startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in,0);
     }
 }

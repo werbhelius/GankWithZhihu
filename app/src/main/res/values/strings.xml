@@ -20,10 +20,10 @@
     <string name="desc_dev_2"> * 基于 MVP 模式对 Activity 和 Fragment 封装了两个基类</string>
     <string name="desc_dev_3"> * 运用RecyclerView加载了多种复杂布局</string>
     <string name="app_me">关于我</string>
-    <string name="me_1"> * 应届毕业生 北京工作</string>
+    <string name="me_1"> * 北京的同学们可以来找我玩</string>
     <string name="me_2"> * 喜欢的事很多 : 唱歌，画画，写作，撸代码，看悬疑片</string>
     <string name="me_3"> * 喜欢玩游戏：Dota2 LOL 可以联系我一起开黑 :)</string>
-    <string name="me_4"> * 最近想换工作了，有兴趣的可以联系我 :)</string>
     <string name="app_content">联系我</string>
     <string name="splash_info">In fact you really amazing</string>
+    <string name="api_info">以上api只用做学习用途，如有冒犯请联系我删除。</string>
 </resources>

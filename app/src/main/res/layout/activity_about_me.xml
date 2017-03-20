@@ -114,6 +114,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
+                    android:text="@string/api_info"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/app_dev" />
 
                 <TextView
@@ -181,15 +190,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="@string/me_3"
-                    android:paddingLeft="10dp"
-                    android:textSize="12sp"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="@string/me_4"
                     android:paddingLeft="10dp"
                     android:textSize="12sp"
                     android:textColor="@color/black" />
