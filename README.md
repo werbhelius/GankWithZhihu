@@ -1,6 +1,8 @@
 
 # 实践！业余时间做的一款阅读类App （MVP + RxJava + Retrofit）
 
+[APK下载地址](https://fir.im/bew6) 或 [Releases](https://github.com/Werb/GankWithZhihu/releases)
+
 * 整体项目基于 MVP + RxJava + Retrofit
 * 通过 Retrofit 实现了无网缓存
 * 基于 MVP 模式对 Activity 和 Fragment 封装了两个基类，同样适用于非 MVP 的实现。
