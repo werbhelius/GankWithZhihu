@@ -19,7 +19,7 @@ import butterknife.Bind;
  * Contact Me : werbhelius@gmail.com
  * WebActivity
  */
-public class GankWebActivity extends MVPBaseActivity<IGankWebView,GankWebPresenter> implements IGankWebView {
+public class GankWebActivity extends MVPBaseActivity<IGankWebView, GankWebPresenter> implements IGankWebView {
 
     public static final String GANK_URL = "gank_url";
 
@@ -45,6 +45,9 @@ public class GankWebActivity extends MVPBaseActivity<IGankWebView,GankWebPresent
         super.onCreate(savedInstanceState);
 
         parseIntent();
+        if (gank_url.contains("app3.qdaily.com/app3")) {
+            gank_url = gank_url.replace("app3.qdaily.com/app3", "m.qdaily.com/mobile");
+        }
         mPresenter.setWebView(gank_url);
     }
 
