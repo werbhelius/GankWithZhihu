@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.zhihu.News;
 import com.werb.gankwithzhihu.ui.base.BasePresenter;
 import com.werb.gankwithzhihu.ui.view.IZhihuWebView;
@@ -30,7 +31,7 @@ public class ZhihuWebPresenter extends BasePresenter<IZhihuWebView> {
     }
 
     public void getDetailNews(String id){
-        zhihuApi.getDetailNews(id)
+        ApiService.getZhihuApiSingleton().getDetailNews(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(news -> {

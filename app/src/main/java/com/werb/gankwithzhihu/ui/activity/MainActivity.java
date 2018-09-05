@@ -35,8 +35,6 @@ public class MainActivity extends MVPBaseActivity {
     @Bind(R.id.content_viewPager)
     ViewPager content_viewPager;
 
-    private List<MVPBaseFragment> fragmentList;
-
     @Override
     protected BasePresenter createPresenter() {
         return null;
@@ -55,12 +53,12 @@ public class MainActivity extends MVPBaseActivity {
 
     //初始化Tab滑动
     public void initTabView(){
-        fragmentList = new ArrayList<>();
+        List<MVPBaseFragment> fragmentList = new ArrayList<>();
         fragmentList.add(new ZhihuFragment());
         fragmentList.add(new GankFragment());
         fragmentList.add(new DailyFragment());
         content_viewPager.setOffscreenPageLimit(3);//设置至少3个fragment，防止重复创建和销毁，造成内存溢出
-        content_viewPager.setAdapter(new ViewPagerFgAdapter(getSupportFragmentManager(),fragmentList,"main_view_pager"));//给ViewPager设置适配器
+        content_viewPager.setAdapter(new ViewPagerFgAdapter(getSupportFragmentManager(), fragmentList,"main_view_pager"));//给ViewPager设置适配器
         tabLayout.setupWithViewPager(content_viewPager);//将TabLayout和ViewPager关联起来
     }
 

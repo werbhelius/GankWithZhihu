@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.gank.Gank;
 import com.werb.gankwithzhihu.ui.adapter.GankActivityAdapter;
 import com.werb.gankwithzhihu.ui.base.BasePresenter;
@@ -35,7 +36,7 @@ public class GankPresenter extends BasePresenter<IGankView> {
         if (gankView != null) {
             recyclerView = gankView.getRecyclerView();
 
-            gankApi.getGankData(year, month, day)
+            ApiService.getGankApiSingleton().getGankData(year, month, day)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(gankData -> {

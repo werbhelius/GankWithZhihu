@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.daily.DailyTimeLine;
 import com.werb.gankwithzhihu.ui.adapter.DailyFeedAdapter;
 import com.werb.gankwithzhihu.ui.base.BasePresenter;
@@ -34,6 +35,8 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
     private String d_id;
     private boolean isLoadMore = false; // 是否加载过更多
 
+    private Handler mHandler = new Handler();
+
     public DailyFeedPresenter(Context context) {
         this.context = context;
     }
@@ -44,7 +47,7 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
         if(dailyFeedView !=null){
             mRecyclerView = dailyFeedView.getRecyclerView();
             layoutManager = dailyFeedView.getLayoutManager();
-            dailyApi.getDailyFeedDetail(id,num)
+            ApiService.getDailyApiSingleton().getDailyFeedDetail(id,num)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(dailyTimeLine -> {
@@ -100,7 +103,7 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
                         if(has_more.equals("true")) {
                             isLoadMore = true;
                             dailyFeedView.setDataRefresh(true);
-                            new Handler().postDelayed(() -> getDailyFeedDetail(d_id,next_pager), 1000);
+                            mHandler.postDelayed(() -> getDailyFeedDetail(d_id,next_pager), 1000);
                         }
                     }
                 }
@@ -112,5 +115,11 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
                 lastVisibleItem = layoutManager.findLastVisibleItemPosition();
             }
         });
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }

@@ -38,10 +38,10 @@ public class SplashView extends View {
    * @author yildizkabaran
    *
    */
-  public static interface ISplashListener {
-    public void onStart();
-    public void onUpdate(float completionFraction);
-    public void onEnd();
+  public interface ISplashListener {
+    void onStart();
+    void onUpdate(float completionFraction);
+    void onEnd();
   }
   
   /**
