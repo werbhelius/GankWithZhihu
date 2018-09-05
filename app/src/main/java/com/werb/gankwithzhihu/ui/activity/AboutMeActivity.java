@@ -59,13 +59,13 @@ public class AboutMeActivity extends MVPBaseActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_github:
-                Intent it1 = new Intent(Intent.ACTION_VIEW, Uri.parse(tv_github.getText().toString()));
-                it1.setClassName("com.android.browser", "com.android.browser.BrowserActivity");
+                Intent it1 = new Intent(Intent.ACTION_VIEW);
+                it1.setDataAndType(Uri.parse(tv_github.getText().toString()), "text/html");
                 startActivity(it1);
                 break;
             case R.id.tv_blog:
-                Intent it2 = new Intent(Intent.ACTION_VIEW, Uri.parse(tv_blog.getText().toString()));
-                it2.setClassName("com.android.browser", "com.android.browser.BrowserActivity");
+                Intent it2 = new Intent(Intent.ACTION_VIEW);
+                it2.setDataAndType(Uri.parse(tv_blog.getText().toString()), "text/html");
                 startActivity(it2);
                 break;
         }

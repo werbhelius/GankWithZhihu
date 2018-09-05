@@ -1,13 +1,9 @@
 package com.werb.gankwithzhihu.api;
 
-import android.os.Environment;
-
 import com.werb.gankwithzhihu.MyApp;
 import com.werb.gankwithzhihu.util.StateUtils;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -16,9 +12,6 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import okio.BufferedSource;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
