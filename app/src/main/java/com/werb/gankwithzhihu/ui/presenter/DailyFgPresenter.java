@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.daily.DailyTimeLine;
 import com.werb.gankwithzhihu.ui.adapter.DailyListAdapter;
 import com.werb.gankwithzhihu.ui.base.BasePresenter;
@@ -43,7 +44,7 @@ public class DailyFgPresenter extends BasePresenter<IDailyFgView> {
             mRecyclerView = dailyFgView.getRecyclerView();
             layoutManager = dailyFgView.getLayoutManager();
 
-            dailyApi.getDailyTimeLine(num)
+            ApiService.getDailyApiSingleton().getDailyTimeLine(num)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(dailyTimeLine -> {

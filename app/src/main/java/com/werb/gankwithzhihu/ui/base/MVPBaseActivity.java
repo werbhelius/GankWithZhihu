@@ -26,7 +26,6 @@ public abstract class MVPBaseActivity<V, T extends BasePresenter<V>> extends App
     protected AppBarLayout mAppBar;
     protected Toolbar mToolbar;
     private SwipeRefreshLayout mRefreshLayout;
-    private boolean mIsRequestDataRefresh = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,8 @@ public abstract class MVPBaseActivity<V, T extends BasePresenter<V>> extends App
         setContentView(provideContentViewId());//布局
         ButterKnife.bind(this);
 
-        mAppBar = (AppBarLayout) findViewById(R.id.app_bar_layout);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mAppBar = findViewById(R.id.app_bar_layout);
+        mToolbar = findViewById(R.id.toolbar);
         if (mToolbar != null && mAppBar != null) {
             setSupportActionBar(mToolbar); //把Toolbar当做ActionBar给设置
             if (canBack()) {
@@ -59,7 +58,7 @@ public abstract class MVPBaseActivity<V, T extends BasePresenter<V>> extends App
     }
 
     private void setupSwipeRefresh() {
-        mRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh);
+        mRefreshLayout = findViewById(R.id.swipe_refresh);
         if (mRefreshLayout != null) {
             mRefreshLayout.setColorSchemeResources(R.color.refresh_progress_1,
                     R.color.refresh_progress_2, R.color.refresh_progress_3);
@@ -70,7 +69,6 @@ public abstract class MVPBaseActivity<V, T extends BasePresenter<V>> extends App
     }
 
     public void requestDataRefresh() {
-        mIsRequestDataRefresh = true;
     }
 
 
@@ -79,7 +77,6 @@ public abstract class MVPBaseActivity<V, T extends BasePresenter<V>> extends App
             return;
         }
         if (!requestDataRefresh) {
-            mIsRequestDataRefresh = false;
             mRefreshLayout.postDelayed(() -> {
                 if (mRefreshLayout != null) {
                     mRefreshLayout.setRefreshing(false);

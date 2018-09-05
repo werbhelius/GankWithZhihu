@@ -1,6 +1,7 @@
 package com.werb.gankwithzhihu.ui.base;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.TypedValue;
@@ -20,7 +21,6 @@ public abstract class MVPBaseFragment<V, T extends BasePresenter<V>> extends Fra
 
     protected T mPresenter;
 
-    private boolean mIsRequestDataRefresh = false;
     private SwipeRefreshLayout mRefreshLayout;
 
     @Override
@@ -31,7 +31,7 @@ public abstract class MVPBaseFragment<V, T extends BasePresenter<V>> extends Fra
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(createViewLayoutId(),container,false);
         ButterKnife.bind(this,rootView);
         initView(rootView);
@@ -48,7 +48,7 @@ public abstract class MVPBaseFragment<V, T extends BasePresenter<V>> extends Fra
     }
 
     private void setupSwipeRefresh(View view){
-        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
+        mRefreshLayout = view.findViewById(R.id.swipe_refresh);
         if(mRefreshLayout != null){
             mRefreshLayout.setColorSchemeResources(R.color.refresh_progress_1,
                     R.color.refresh_progress_2,R.color.refresh_progress_3);
@@ -59,7 +59,6 @@ public abstract class MVPBaseFragment<V, T extends BasePresenter<V>> extends Fra
     }
 
     public void requestDataRefresh() {
-        mIsRequestDataRefresh = true;
     }
 
 
@@ -68,7 +67,6 @@ public abstract class MVPBaseFragment<V, T extends BasePresenter<V>> extends Fra
             return;
         }
         if (!requestDataRefresh) {
-            mIsRequestDataRefresh = false;
             mRefreshLayout.postDelayed(() -> {
                 if (mRefreshLayout != null) {
                     mRefreshLayout.setRefreshing(false);

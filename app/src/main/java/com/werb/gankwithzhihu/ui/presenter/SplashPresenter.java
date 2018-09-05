@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.zhihu.SplashImage;
 import com.werb.gankwithzhihu.ui.base.BasePresenter;
 import com.werb.gankwithzhihu.ui.view.ISplashView;
@@ -33,7 +34,7 @@ public class SplashPresenter extends BasePresenter<ISplashView> {
         if (splashView != null) {
             coverImg = splashView.getCoverImg();
 
-            zhihuApi.getSplashImage()
+            ApiService.getZhihuApiSingleton().getSplashImage()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(splashImage -> {

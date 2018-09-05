@@ -1,4 +1,4 @@
-package com.werb.gankwithzhihu.api;
+package com.werb.gankwithzhihu.api.services;
 
 import com.werb.gankwithzhihu.bean.zhihu.News;
 import com.werb.gankwithzhihu.bean.zhihu.NewsTimeLine;

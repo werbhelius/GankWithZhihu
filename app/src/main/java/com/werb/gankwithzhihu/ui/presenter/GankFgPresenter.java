@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.gank.Gank;
 import com.werb.gankwithzhihu.bean.gank.Meizhi;
 import com.werb.gankwithzhihu.bean.gank.Video;
@@ -53,7 +54,7 @@ public class GankFgPresenter extends BasePresenter<IGankFgView> {
                 page = page + 1;
             }
 
-            Observable.zip(gankApi.getMeizhiData(page), gankApi.getVideoData(page), this::creatDesc)
+            Observable.zip(ApiService.getGankApiSingleton().getMeizhiData(page), ApiService.getGankApiSingleton().getVideoData(page), this::creatDesc)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(meizhi1 -> {

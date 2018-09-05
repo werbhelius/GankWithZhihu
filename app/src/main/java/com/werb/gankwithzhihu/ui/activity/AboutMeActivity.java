@@ -51,7 +51,7 @@ public class AboutMeActivity extends MVPBaseActivity implements View.OnClickList
      * 初始化ToolBar
      */
     private void initToolbar() {
-        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbarLayout);
+        collapsingToolbarLayout = findViewById(R.id.collapsingToolbarLayout);
         collapsingToolbarLayout.setTitle("很高兴你能看到这里");
     }
 

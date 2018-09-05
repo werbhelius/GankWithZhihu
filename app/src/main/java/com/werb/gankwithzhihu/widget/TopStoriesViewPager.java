@@ -3,6 +3,7 @@ package com.werb.gankwithzhihu.widget;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -30,12 +31,10 @@ import java.util.concurrent.TimeUnit;
 public class TopStoriesViewPager extends RelativeLayout {
 
 	private Context context;
-	private LinearLayout dotLayout;
 	private ViewPager viewPager;
 	private ViewPagerClickListenner listenner;
 	private List<View> dotList;
 	private int currentItem = 0;// ImageViewpager当前页面的index
-	private int oldItem = 0;
 	private List<ImageView> images;
 	// 执行周期性或定时任务
 	private ScheduledExecutorService mScheduledExecutorService;
@@ -64,7 +63,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 				LayoutParams.MATCH_PARENT);
 		viewPager.setLayoutParams(params);
 
-		dotLayout = new LinearLayout(context);
+		LinearLayout dotLayout = new LinearLayout(context);
 		LayoutParams dotParams = new LayoutParams(LayoutParams.MATCH_PARENT,
 				LayoutParams.WRAP_CONTENT);
 		dotParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
@@ -167,9 +166,8 @@ public class TopStoriesViewPager extends RelativeLayout {
 	}
 
 	public int getResourceId(String resourceName) {
-		int resId = context.getResources().getIdentifier(resourceName,
+		return context.getResources().getIdentifier(resourceName,
 				"drawable", context.getPackageName());
-		return resId;
 	}
 
 	public class MyPagerAdapter extends PagerAdapter{
@@ -188,7 +186,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 		}
 
 		@Override
-		public boolean isViewFromObject(View arg0, Object arg1) {
+		public boolean isViewFromObject(@NonNull View arg0, Object arg1) {
 			return arg0 == arg1;
 		}
 
@@ -201,7 +199,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 						.removeView(views.get(position % views.size()));
 			}
 			try {
-				((ViewPager) container).addView(
+				container.addView(
 						views.get(position % views.size()), 0);
 			} catch (Exception e) {
 			}
@@ -210,7 +208,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 
 		@Override
 		public void destroyItem(ViewGroup container, int position, Object object) {
-			((ViewPager) container).removeView(views.get(position
+			container.removeView(views.get(position
 					% views.size()));
 		}
 

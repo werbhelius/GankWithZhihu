@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.werb.gankwithzhihu.R;
+import com.werb.gankwithzhihu.api.ApiService;
 import com.werb.gankwithzhihu.bean.zhihu.NewsTimeLine;
 import com.werb.gankwithzhihu.ui.adapter.ZhihuListAdapter;
 import com.werb.gankwithzhihu.ui.base.BasePresenter;
@@ -41,7 +42,7 @@ public class ZhihuFgPresenter extends BasePresenter<IZhihuFgView> {
             mRecyclerView = zhihuFgView.getRecyclerView();
             layoutManager = zhihuFgView.getLayoutManager();
 
-            zhihuApi.getLatestNews()
+            ApiService.getZhihuApiSingleton().getLatestNews()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(newsTimeLine -> {
@@ -56,7 +57,7 @@ public class ZhihuFgPresenter extends BasePresenter<IZhihuFgView> {
             mRecyclerView = zhihuFgView.getRecyclerView();
             layoutManager = zhihuFgView.getLayoutManager();
 
-            zhihuApi.getBeforetNews(time)
+            ApiService.getZhihuApiSingleton().getBeforetNews(time)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(newsTimeLine -> {
