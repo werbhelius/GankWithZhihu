@@ -35,6 +35,8 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
     private String d_id;
     private boolean isLoadMore = false; // 是否加载过更多
 
+    private Handler mHandler = new Handler();
+
     public DailyFeedPresenter(Context context) {
         this.context = context;
     }
@@ -101,7 +103,7 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
                         if(has_more.equals("true")) {
                             isLoadMore = true;
                             dailyFeedView.setDataRefresh(true);
-                            new Handler().postDelayed(() -> getDailyFeedDetail(d_id,next_pager), 1000);
+                            mHandler.postDelayed(() -> getDailyFeedDetail(d_id,next_pager), 1000);
                         }
                     }
                 }
@@ -113,5 +115,11 @@ public class DailyFeedPresenter extends BasePresenter<IDailyFeedView> {
                 lastVisibleItem = layoutManager.findLastVisibleItemPosition();
             }
         });
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }

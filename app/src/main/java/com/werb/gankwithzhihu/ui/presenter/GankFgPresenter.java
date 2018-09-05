@@ -39,6 +39,7 @@ public class GankFgPresenter extends BasePresenter<IGankFgView> {
     private int page = 1;
     private int lastVisibleItem;
     private boolean isLoadMore = false; // 是否加载过更多
+    private Handler mHandler = new Handler();
 
     public GankFgPresenter(Context context) {
         this.context = context;
@@ -104,7 +105,7 @@ public class GankFgPresenter extends BasePresenter<IGankFgView> {
                             .getItemCount()) {
                         gankFgView.setDataRefresh(true);
                         isLoadMore = true;
-                        new Handler().postDelayed(() -> getGankData(), 1000);
+                        mHandler.postDelayed(() -> getGankData(), 1000);
                     }
                 }
             }
@@ -145,5 +146,11 @@ public class GankFgPresenter extends BasePresenter<IGankFgView> {
             }
         }
         return videoDesc;
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }

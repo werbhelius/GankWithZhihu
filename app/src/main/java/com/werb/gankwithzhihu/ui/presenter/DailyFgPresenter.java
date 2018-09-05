@@ -33,6 +33,7 @@ public class DailyFgPresenter extends BasePresenter<IDailyFgView> {
     private String has_more;
     private String next_pager;
     private boolean isLoadMore = false; // 是否加载过更多
+    private Handler mHandler = new Handler();
 
     public DailyFgPresenter(Context context) {
         this.context = context;
@@ -106,7 +107,7 @@ public class DailyFgPresenter extends BasePresenter<IDailyFgView> {
                             isLoadMore = true;
                         }
                         adapter.updateLoadStatus(adapter.LOAD_MORE);
-                        new Handler().postDelayed(() -> getDailyTimeLine(next_pager), 1000);
+                        mHandler.postDelayed(() -> getDailyTimeLine(next_pager), 1000);
                     }
                 }
             }
@@ -117,5 +118,11 @@ public class DailyFgPresenter extends BasePresenter<IDailyFgView> {
                 lastVisibleItem = layoutManager.findLastVisibleItemPosition();
             }
         });
+    }
+
+    @Override
+    public void detachView() {
+        super.detachView();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }

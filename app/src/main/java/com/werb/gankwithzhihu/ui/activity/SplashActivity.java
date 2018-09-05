@@ -106,4 +106,10 @@ public class SplashActivity extends MVPBaseActivity {
         super.startActivity(intent);
         overridePendingTransition(android.R.anim.fade_in,0);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
+    }
 }

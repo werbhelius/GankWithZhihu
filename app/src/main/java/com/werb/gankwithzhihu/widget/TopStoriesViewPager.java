@@ -32,18 +32,24 @@ public class TopStoriesViewPager extends RelativeLayout {
 
 	private Context context;
 	private ViewPager viewPager;
-	private ViewPagerClickListenner listenner;
+	private ViewPagerClickListener listenner;
 	private List<View> dotList;
 	private int currentItem = 0;// ImageViewpager当前页面的index
 	private List<ImageView> images;
 	// 执行周期性或定时任务
 	private ScheduledExecutorService mScheduledExecutorService;
-	private Handler handler = new Handler() {
+	private Handler mHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
 			viewPager.setCurrentItem(currentItem);
 		}
 	};
+
+	@Override
+	protected void onDetachedFromWindow() {
+		super.onDetachedFromWindow();
+		mHandler.removeCallbacksAndMessages(null);
+	}
 
 	public TopStoriesViewPager(Context context) {
 		super(context);
@@ -77,7 +83,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 	}
 
 	public void init(List<TopStories> items,TextView tv,
-					 ViewPagerClickListenner clickListenner) {
+					 ViewPagerClickListener clickListenner) {
 		this.listenner = clickListenner;
 		images = new ArrayList<>();
 		dotList = new ArrayList<>();
@@ -160,7 +166,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 		public void run() {
 			if (images != null) {
 				currentItem = (currentItem + 1) % images.size();
-				handler.obtainMessage().sendToTarget();
+				mHandler.obtainMessage().sendToTarget();
 			}
 		}
 	}
@@ -215,7 +221,7 @@ public class TopStoriesViewPager extends RelativeLayout {
 	}
 	
 	// 点击事件监听器接口
-	public interface ViewPagerClickListenner {
+	public interface ViewPagerClickListener {
 		/**
 		 * item点击事件监听
 		 */

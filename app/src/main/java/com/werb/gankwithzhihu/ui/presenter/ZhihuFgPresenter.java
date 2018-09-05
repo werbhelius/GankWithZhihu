@@ -31,6 +31,7 @@ public class ZhihuFgPresenter extends BasePresenter<IZhihuFgView> {
     private ZhihuListAdapter adapter;
     private int lastVisibleItem;
     private boolean isLoadMore = false; // 是否加载过更多
+    private Handler mHandler = new Handler();
 
     public ZhihuFgPresenter(Context context) {
         this.context = context;
@@ -113,7 +114,7 @@ public class ZhihuFgPresenter extends BasePresenter<IZhihuFgView> {
                         adapter.updateLoadStatus(adapter.LOAD_PULL_TO);
                         isLoadMore = true;
                         adapter.updateLoadStatus(adapter.LOAD_MORE);
-                        new Handler().postDelayed(() -> getBeforeNews(time), 1000);
+                        mHandler.postDelayed(() -> getBeforeNews(time), 1000);
                     }
                 }
             }
@@ -126,4 +127,9 @@ public class ZhihuFgPresenter extends BasePresenter<IZhihuFgView> {
         });
     }
 
+    @Override
+    public void detachView() {
+        super.detachView();
+        mHandler.removeCallbacksAndMessages(null);
+    }
 }
