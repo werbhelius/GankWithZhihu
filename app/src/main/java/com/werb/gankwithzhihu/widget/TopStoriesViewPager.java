@@ -33,7 +33,6 @@ public class TopStoriesViewPager extends RelativeLayout {
 	private Context context;
 	private ViewPager viewPager;
 	private ViewPagerClickListener listenner;
-	private List<View> dotList;
 	private int currentItem = 0;// ImageViewpager当前页面的index
 	private List<ImageView> images;
 	// 执行周期性或定时任务
@@ -86,7 +85,6 @@ public class TopStoriesViewPager extends RelativeLayout {
 					 ViewPagerClickListener clickListenner) {
 		this.listenner = clickListenner;
 		images = new ArrayList<>();
-		dotList = new ArrayList<>();
 
 		for (int i = 0; i < items.size(); i++) {
 			final TopStories item = items.get(i);
